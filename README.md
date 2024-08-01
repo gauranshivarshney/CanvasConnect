@@ -1,4 +1,4 @@
-# Recipe Book
+# Canvas Connect
 
 Welcome to the Canvas Connect project! .This repository features where users can share their art, interact through likes and comments.
 
