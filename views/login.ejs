@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostWave</title>
+    <link rel="stylesheet" href="/stylesheets/style_login.css">
+</head>
+<body>
+    <%
+        if(typeof message1 !== 'undefined'){
+            %>
+                <p class="para"><%= message1 %></p>
+            <%
+        }
+    %>
+    <%
+        if(typeof message !== 'undefined'){
+            %>
+                <p class="para1"><%= message %></p>
+            <%
+        }
+    %>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Log In</header>
+        </div>
+        <form class="input-box" action="/userlogin" method="post">
+            <input type="email" class="input-field" placeholder="Email" id="email" name="email" autocomplete="off" required>
+            <input type="password" class="input-field" placeholder="Password" id="pass" name="password" autocomplete="off" required>
+            <div class="input-submit">
+                <button class="submit-btn" id="submit"></button>
+                <label for="submit"">Log In</label>
+            </div>
+        </form>
+        <div class="sign-up-link">
+            <p>Don't have account? <a href="/signup">Sign Up</a></p>
+        </div>
+    </div>
+</body>
+</html>
