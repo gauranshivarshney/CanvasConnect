@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostWave</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body{
+            background: #FBEAEB;
+        }
+
+        .navbar{
+            display: flex;
+            background: #2F3C7E;
+            height: 80px;
+        }
+
+        .nav-list{
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list li{
+            list-style: none;
+            padding: 26px;
+            padding-left: 90px;
+        }
+
+        .nav-list li a{
+            font-size: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-list li a:hover{
+            color: rgb(125, 121, 121);
+        }
+
+        .login{
+            padding-left: 900px;
+        }
+
+        .postImage{
+            padding-top: 10px;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 900px){
+            .nav-list li a{
+                font-size: 15px;
+            }
+
+            .login{
+                padding-left: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a class="login" href="/login">Login</a></li>
+        </ul>
+    </nav>
+    <div class="w-full min-h screen bg-custom-pink p-10">
+        <div class="posts text-black">
+            <h3 class="text-blue-900 font-bold text-2xl">All Posts</h3>
+            <div class="text-black">
+                <div class="posts mt-9 flex gap-3 flex-wrap">
+                    <% if(userData.length > 0) { %>
+                        <% userData.forEach(function(post){ %>
+                            <div class="details w-72 p-3 bg-zinc-400 rounded-lg">
+                                <p class="text-2xl mt-2 text-blue-500 font-bold">@ <%= post.user.username %></p>
+                                <p><img src="/images/uploads/<%= post.image %>" alt="Post Image" class="postImage"></p>
+                                <p class="text-2xl mt-2 text-black-900 font-bold"><%= post.title %></p>
+                                <hr class="border-white-900 mt-2">
+                                <p class="text-xl mt-3 text-white"><%= post.content %></p>
+                                <small class="mt-2 inline-block"><%= post.likes %> <span class="font-bold">likes</span></small> <br>
+                                <% if(post.comments.length > 0) { %>
+                                    <small class="mt-2 inline-block font-bold">Comments: </small> <br>
+                                    <% post.comments.forEach(function(comment){ %>
+                                        <small><%= comment.content %></small><br>
+                                    <% }) %>
+                                <% } %>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <h3 class="text-black">No posts yet.</h3>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostWave</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero h1{
+            font-size: 30px;
+            padding-left: 40px;
+            padding-top: 30px;
+            font-weight: 900;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Update Post</h1>
+        <div class="w-full min-h screen bg-custom-pink text-black-800 p-10">
+            <form action="/update/<%= user._id %>" method="post" enctype="multipart/form-data">
+                <label for="image" class="pic">Upload New Art</label><br>
+                <input type="file" class="image" name="image" id="image" accept="image/*" required><br><br>
+                <input type="text" class="p-3 mb-4 outline-none w-1/3 resize-none bg-transparent border-2 border-black rounded-md" placeholder="Your title" name="title" value="<%= user.title %>"> <br>
+                <textarea placeholder="Write description of your art.." class="p-3 outline-none w-1/3 resize-none bg-transparent border-2 border-black rounded-md" name="content" value="<%= user.content %>"></textarea>
+                <input class="px-3 py-2 bg-pink-200 block rounded-md mt-2 w-40 cursor-pointer" type="submit" value="Update post">
+            </form>
+        </div>
+    </section>
+</body>
+</html>

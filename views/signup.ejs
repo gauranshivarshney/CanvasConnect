@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostWave</title>
+    <link rel="stylesheet" href="/stylesheets/style_signup.css">
+</head>
+<body>
+    <%
+        if(typeof message2 !== 'undefined'){
+            %>
+                <p class="para"><%= message2 %></p>
+            <%
+        }
+    %>
+    <%
+        if(typeof message !== 'undefined'){
+            %>
+                <p class="para1"><%= message %></p>
+            <%
+        }
+    %>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Sign Up</header>
+        </div>
+        <form class="input-box" action="/usersignup" method="post" enctype="multipart/form-data">
+            <label for="image" class="pic">Upload Profile Pic</label>
+            <input type="file" class="image" name="image" id="image" accept="image/*" required>
+            <input type="text" class="input-field" placeholder="Username" name="username" autocomplete="off" required>
+            <input type="text" class="input-field" placeholder="Name" name="name" autocomplete="off" required>
+            <input type="email" class="input-field" placeholder="Email" name="email" autocomplete="off" required>
+            <input type="password" class="input-field" placeholder="Password" name="password" autocomplete="off" required>
+            <div class="input-submit">
+                <button class="submit-btn" id="submit"></button>
+                <label for="submit">Sign Up</label>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

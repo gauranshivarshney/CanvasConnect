@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #FBEAEB;
+}
+
+.para{
+    font-size: 35px;
+    color: red;
+    font-weight: 700;
+}
+
+.para1{
+    font-size: 35px;
+    color: green;
+    font-weight: 700;
+}
+
+.login-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 440px;
+    height: 480px;
+    padding: 30px;
+}
+
+.login-header{
+    text-align: center;
+    margin: 20px 0 40px 0;
+}
+
+.login-header header{
+    color: #2F3C7E;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.input-box .input-field{
+    width: 90%;
+    height: 60px;
+    font-size: 17px;
+    padding: 0 25px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.05);
+    outline: none;
+}
+
+::placeholder{
+    font-weight: 500;
+    color: rgb(70, 68, 68);
+}
+
+.pic{
+    width: 90%;
+    font-size: 20px;
+    padding-left: 20px;
+    color: rgb(70, 68, 68);
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.05);
+    outline: none;
+}
+
+.image{
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+.input-submit{
+    position: relative;
+}
+
+.submit-btn{
+    margin-top: 40px;
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: rgb(206, 125, 138);
+}
+
+.input-submit label{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    color: black;
+    font-size: 25px;
+    font-weight: 600;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.submit-btn:hover{
+    background: rgb(174, 48, 69);
+}
