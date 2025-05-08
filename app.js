@@ -8,7 +8,7 @@ const path = require('path');
 const userController = require('./controller/userController');
 const session = require('express-session');
 const upload = require('./config/multerconfig');
-const config = require("./config/config");
+const cloudinary = require('cloudinary').v2
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -20,6 +20,12 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
 
 app.get('/', async (req, res) => {
     const userData = await postModel.find().populate('user').populate('comments.user');
@@ -48,10 +54,11 @@ app.get('/userprofile', async (req, res) => {
 
 app.post('/post', upload.single("image"), async (req, res) => {
     const userId = req.session.user_id;
+    const result = await cloudinary.uploader.upload(req.file.path);
     const newPost = new postModel({
         title: req.body.title,
         content: req.body.content,
-        image: req.file.path,
+        image: result.secure_url,
         user: userId
     });
     await newPost.save();

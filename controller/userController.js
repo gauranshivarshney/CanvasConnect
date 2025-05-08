@@ -28,8 +28,7 @@ const insertUser = async (req, res) => {
             username: req.body.username,
             name: req.body.name,
             email: req.body.email,
-            password: spassword,
-            profilepic: req.file.filename
+            password: spassword
         });
         const data = await userData.save();
         if(data){

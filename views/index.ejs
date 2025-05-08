@@ -69,7 +69,7 @@
             <li><a class="login" href="/login">Login</a></li>
         </ul>
     </nav>
-    <div class="w-full min-h screen bg-custom-pink p-10">
+    <div class="w-full min-h-screen bg-custom-pink p-10">
         <div class="posts text-black">
             <h3 class="text-blue-900 font-bold text-2xl">All Posts</h3>
             <div class="text-black">
@@ -79,7 +79,7 @@
                             <div class="details w-72 p-3 bg-zinc-400 rounded-lg">
                                 <p class="text-2xl mt-2 text-blue-500 font-bold">@ <%= post.user.username %></p>
                                 <p><img src="<%= post.image %>" alt="Post Image" class="postImage"></p>
-                                <p class="text-2xl mt-2 text-black-900 font-bold"><%= post.title %></p>
+                                <p class="text-2xl mt-2 text-black font-bold"><%= post.title %></p>
                                 <hr class="border-white-900 mt-2">
                                 <p class="text-xl mt-3 text-white"><%= post.content %></p>
                                 <small class="mt-2 inline-block"><%= post.likes %> <span class="font-bold">likes</span></small> <br>
