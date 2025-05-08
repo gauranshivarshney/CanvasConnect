@@ -51,7 +51,7 @@ app.post('/post', upload.single("image"), async (req, res) => {
     const newPost = new postModel({
         title: req.body.title,
         content: req.body.content,
-        image: req.file.filename,
+        image: req.file.path,
         user: userId
     });
     await newPost.save();
